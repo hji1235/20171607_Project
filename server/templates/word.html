@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CMH:지정 단어 설정 페이지</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="../static/word.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/word.css">
+</head>
+<body>
+<h1>지정 단어 설정</h1>
+<table>
+    <tr>
+        <th>word</th>
+        <th>delete</th>
+    </tr>
+    {% for row in rows %}
+    <tr>
+        <!--<td>{{ row['uuid'] }}</td>-->
+        <td>{{ row[1] }}</td>
+        <td>
+            <button class="delete-btn" data-uuid="{{ row[0] }}" data-word="{{ row[1] }}">Delete</button>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<p data-uuid="{{ uuid }}">UUID: {{ uuid }}</p>
+<form id="add-form">
+    <input type="text" id="word" name="identifier" placeholder="단어를 입력하세요">
+    <button type="submit">Add</button>
+</form>
+</body>
+</html>
+
+
+

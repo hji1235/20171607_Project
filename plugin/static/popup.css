@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 20px;
+    width: 350px;
+    height: 440px;
+    border: 7px solid #007BFF;
+    box-sizing: border-box;
+}
+
+#pageContainer {
+    padding: 0px;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #007BFF;
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+
+input[type="range"] {
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+}
+
+#severityValue {
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 15px;
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+input[type="text"] {
+    font-size: 16px;
+    padding: 5px;
+    width: 200px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 3px;
+}
+
+button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+#blacklistText {
+    margin-left: 70px;
+    margin-top: 20px;
+}
+
+#customWordText {
+    margin-left: 55px;
+}
+
+#severityText {
+    margin-left: 80px;
+    margin-top: 30px;
+}
+
+

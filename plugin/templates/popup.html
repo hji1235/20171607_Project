@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Popup</title>
+    <link rel="stylesheet" type="text/css" href="../static/popup.css">
+</head>
+<body>
+<div id="pageContainer">
+    <h1>설정</h1>
+    <hr>
+    <div>
+        <label id="severityText" for="severity">악플 필터링 수치</label>
+        <input type="range" id="severity" name="severity" min="0" max="100">
+        <span id="severityValue"></span>
+    </div>
+    <div>
+        <label id="blacklistText" for="blacklist">블랙리스트</label>
+        <input type="text" id="blacklist" name="blacklist">
+        <button id="addBlacklistButton">등록</button>
+    </div>
+    <div>
+        <label id="customWordText" for="customWord">사용자 지정 단어</label>
+        <input type="text" id="customWord" name="customWord">
+        <button id="addCustomWordButton">등록</button>
+    </div>
+    <div id="message" style="display: none;">등록되었습니다.</div>
+    <div>
+        <a href="#" id="optionsLink">블랙리스트 및 지정 단어 옵션</a>
+
+    </div>
+    <script src="../static/popup.js"></script>
+</div>
+</body>
+</html>

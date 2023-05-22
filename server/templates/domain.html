@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CMH:도메인 관리 페이지</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="../static/domain.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/domain.css">
+</head>
+<body>
+<h1>도메인 및 식별자 관리</h1>
+<table>
+    <tr>
+        <th>Domain</th>
+        <th>Identifier</th>
+        <th></th>
+    </tr>
+    {% for row in rows %}
+    <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>
+            <button class="edit-btn" data-domain="{{ row[0] }}" data-identifier="{{ row[1] }}">Edit</button>
+            <button class="delete-btn" data-domain="{{ row[0] }}">Delete</button>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<form id="add-form">
+    <input type="text" id="domain" name="domain" placeholder="Domain">
+    <input type="text" id="identifier" name="identifier" placeholder="Identifier">
+    <button type="submit">Add</button>
+</form>
+</body>
+</html>
+
+
+

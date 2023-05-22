@@ -1,0 +1,52 @@
+h1 {
+    text-align: center;
+    font-size: 36px;
+}
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+th {
+    background-color: #6DA7FF;
+}
+.edit-btn, .delete-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 8px 16px;
+    margin: 4px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.edit-btn:hover, .delete-btn:hover {
+    background-color: #0056b3;
+}
+input[type="text"], button[type="submit"] {
+    padding: 8px;
+    margin: 4px;
+    border-radius: 4px;
+
+}
+button[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
