@@ -63,6 +63,17 @@ def prediction():
     }
     return jsonify(response)
 #------------------------------------------------------------------
+# 테스트용
+def get_dbTest():
+    conn = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="456456",
+        database="mydb",
+        autocommit=True  # 자동 커밋 설정
+    )
+    return conn, conn.cursor()
+
 # 데이터베이스 연결 함수
 def get_db():
     global conn
@@ -113,7 +124,7 @@ def delete_domain(domain):
 
 # 전체 데이터(사용자별 지정단어) 조회 함수
 def get_all_data_word(uuid):
-    cursor = get_db()
+    conn, cursor = get_dbTest()
     query = "SELECT * FROM WORD_TABLE WHERE uuid = %s"
     data = (uuid,)
     cursor.execute(query, data)

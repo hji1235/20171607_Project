@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             var oldIdentifier = this.getAttribute('data-identifier');
 
             var domain = prompt("수정할 도메인을 입력하세요.", oldDomain);
-            var identifier = prompt("수정할 식별자를 입력하세요.", oldIdentifier);
+            var identifier = prompt("수정할 선택자를 입력하세요.", oldIdentifier);
 
             if (domain !== null && identifier !== null) {
                 fetch('/domain/update', {
