@@ -9,9 +9,9 @@ chrome.runtime.onInstalled.addListener(function() {
         console.log('UUID가 저장되었습니다:', uuid);
     });
 
-    // 악플 정도 기본값 60, 로컬 스토리지에 저장
-    chrome.storage.local.set({ 'severity': 60 }, function() {
-        console.log('악플 정도가 저장되었습니다:', 60);
+    // 악플 정도 기본값 50, 로컬 스토리지에 저장
+    chrome.storage.local.set({ 'severity': 50 }, function() {
+        console.log('필터링 적용 수치가 저장되었습니다:', 50);
     });
 });
 

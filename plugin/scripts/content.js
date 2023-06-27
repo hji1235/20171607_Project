@@ -23,9 +23,15 @@ async function getSeverity() {
 }
 
 // 댓글 처리 함수
-async function handleComment(commentElement, myUUID, severity) {
+async function handleComment(commentElement, myUUID, severity, url) {
     // 이미 처리된 댓글은 건너뛰기
-    if (commentElement.dataset.processed) return;
+    if (commentElement.dataset.processed == url) return;
+
+    if (commentElement.textContent.includes("[악성댓글]삭제된 댓글입니다.")){
+        commentElement.textContent = commentElement.textContent.replace("[악성댓글]삭제된 댓글입니다.", "");
+    } else if (commentElement.textContent.includes("[지정단어]삭제된 댓글입니다.")){
+        commentElement.textContent = commentElement.textContent.replace("[지정단어]삭제된 댓글입니다.", "");
+    }
 
     const result = await getResult(commentElement.textContent, myUUID, severity);
     console.log(result);
@@ -40,7 +46,7 @@ async function handleComment(commentElement, myUUID, severity) {
     }
 
     // 처리한 댓글에 표시 남기기
-    commentElement.dataset.processed = true;
+    commentElement.dataset.processed = url;
 }
 
 
@@ -52,25 +58,27 @@ window.onload = async function() {
 
     // severity 획득
     const severity = await getSeverity();
-    console.log("severity : " + severity);
+    console.log("필터링 적용 수치 : " + severity + "% 이상");
 
-    // domain 획득
+    // 도메인 획득
     const domain = window.location.hostname;
     console.log("도메인 : " + domain);
 
     // 식별자 획득
     const identifier = await getIdentifier(domain);
-    console.log("식별자 : " + identifier);
+    console.log("댓글 요소 선택자 : " + identifier);
 
     // 추가 로딩 함수 적용
     async function processNewComments(mutationList) {
+        const url = window.location.href
+        //console.log(url)
         for (const mutation of mutationList) {
             if (mutation.type === 'childList') {
                 for (const node of mutation.addedNodes) {
                     if (node.nodeType === Node.ELEMENT_NODE) {
                         const elements = node.querySelectorAll(identifier);
                         for (let i = 0; i < elements.length; i++) {
-                            await handleComment(elements[i], myUUID, severity);
+                            await handleComment(elements[i], myUUID, severity, url);
                         }
                     }
                 }
@@ -86,6 +94,9 @@ window.onload = async function() {
     // 초기 로딩 댓글 처리
     const elements = document.querySelectorAll(identifier);
     for (let i = 0; i < elements.length; i++) {
-        await handleComment(elements[i], myUUID, severity);
+        const url = window.location.href
+        //console.log(url)
+        await handleComment(elements[i], myUUID, severity, url);
     }
+
 }
